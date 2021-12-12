@@ -1,2 +1,2 @@
 # dns-query-scripts
-Scripts for running queries on public DNS servers.
+Shell scripts for running queries on public DNS servers.
