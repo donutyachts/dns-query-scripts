@@ -1,6 +1,7 @@
 #!/bin/bash
 
-: 'Written: Sunday July 20, 2020
+'
+Script received INPUT file containing list of email addresses and outputs a file listing the domains.
 '
 
 INPUT="/input/emailaddresses"

@@ -1,22 +1,22 @@
 #!/bin/bash
 
-: 'Written: Monday July 14, 2020. 
-Script receives text file in the, inputs directory, with list of domains as input. 
-Script runs dig query for NS then MX then A.
-Script appends output of query to file after query for each domain.
-Script renames the output file and moves to the results directory.
+'
+Script receives text file in the INPUT directory with a list of domains as input.
+Script runs dig query.
+Script appends output of query to the file for each domain.
+Script renames the output file, with a timestamp, and moves to the file to the OUTPUT directory.
 
-Permissions: chmod u+x filename.sh
-Execute: ./filename.sh
+Permissions needed to execute file: chmod u+x filename.sh
+Execute command in terminal while in the same directory as file: ./filename.sh
 
-Perform following commands on output file to format results on single CSV row:
+Perform following commands on output file to format the query result onto a single CSV row:
 tr "\n" "," < $OUTPUT > $OUTPUT_newfilename
 sed -i 's/+++ /\n/g' $OUTPUT_newfilename
 
 =COUNTIF(Mail_Provisioning!A5:A39035,"=A2")
 '
 
-INPUT="../input/rise/20200713-domains-rise-broadband"
+INPUT="../input/listofdomainsfordnsquery"
 OUTPUT="output-dig-ns"
 OUTPUT1="output-dig-mx"
 OUTPUT2="output-dig-a"
@@ -42,7 +42,7 @@ printf "\n"
 printf "###### START MX ######"
 printf "\n"
 
-mv $OUTPUT ../../strfkd.com/mig/"$OUTPUT"_$(date +%F_%R).csv
+mv $OUTPUT ../../migration/"$OUTPUT"_$(date +%F_%R).csv
 
 for domain in `cat $INPUT`
 do
@@ -57,7 +57,7 @@ printf "\n"
 printf "###### START A ######"
 printf "\n"
 
-mv $OUTPUT1 ../../strfkd.com/mig/"$OUTPUT1"_$(date +%F_%R).csv
+mv $OUTPUT1 ../../migration/"$OUTPUT1"_$(date +%F_%R).csv
 
 for domain in `cat $INPUT`
 do
@@ -68,7 +68,7 @@ do
   printf "+++ " >> $OUTPUT2
 done
 
-mv $OUTPUT2 ../../strfkd.com/mig/"$OUTPUT2"_$(date +%F_%R).csv
+mv $OUTPUT2 ../../migration/"$OUTPUT2"_$(date +%F_%R).csv
 
 printf "\n"
 printf "###### START POP.DOMAIN.TLD ######"
@@ -83,7 +83,7 @@ do
   printf "+++ " >> $OUTPUT3 
 done
 
-mv $OUTPUT3 ../../strfkd.com/mig/"$OUTPUT3"_$(date +%F_%R).csv
+mv $OUTPUT3 ../../migration/"$OUTPUT3"_$(date +%F_%R).csv
 
 printf "\n"
 printf "###### START IMAP.DOMAIN.TLD ######"
@@ -98,7 +98,7 @@ do
   printf "+++ " >> $OUTPUT4
 done
 
-mv $OUTPUT4 ../../strfkd.com/mig/"$OUTPUT4"_$(date +%F_%R).csv
+mv $OUTPUT4 ../../migration/"$OUTPUT4"_$(date +%F_%R).csv
 
 printf "\n"
 printf "###### START MAIL.DOMAIN.TLD ######"
@@ -113,7 +113,7 @@ do
   printf "+++ " >> $OUTPUT5
 done
 
-mv $OUTPUT5 ../../strfkd.com/mig/"$OUTPUT5"_$(date +%F_%R).csv
+mv $OUTPUT5 ../../migration/"$OUTPUT5"_$(date +%F_%R).csv
 
 printf "\n"
 printf "###### START SMTP.DOMAIN.TLD ######"
@@ -128,7 +128,7 @@ do
   printf "+++ " >> $OUTPUT6
 done
 
-mv $OUTPUT6 ../../strfkd.com/mig/"$OUTPUT6"_$(date +%F_%R).csv
+mv $OUTPUT6 ../../migration/"$OUTPUT6"_$(date +%F_%R).csv
 
 printf "\n"
 printf "###### START WEBMAIL.DOMAIN.TLD ######"
@@ -143,5 +143,5 @@ do
   printf "+++ " >> $OUTPUT6
 done
 
-mv $OUTPUT7 ../../strfkd.com/mig/"$OUTPUT7"_$(date +%F_%R).csv
+mv $OUTPUT7 ../../migrationration/"$OUTPUT7"_$(date +%F_%R).csv
 
