@@ -6,6 +6,8 @@ Script runs dig query.
 Script appends output of query to the file for each domain.
 Script renames the output file, with a timestamp, and moves to the file to the OUTPUT directory.
 
+The dig command options (+nocomments and +nostats) are used so the response is clean.
+
 Permissions needed to execute file: chmod u+x filename.sh
 Execute command in terminal while in the same directory as file: ./filename.sh
 '
