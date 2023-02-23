@@ -1,6 +1,6 @@
 #!/bin/bash
 '
-Script receives text file in the INPUT directory with a list of domains as input.
+Script receives text file in the INPUT directory with a list of domains as input. Each domain on a separate line.
 Script runs dig query.
 Script appends output of query to the file for each domain.
 Script renames the output file, with a timestamp, and moves to the file to the OUTPUT directory.
