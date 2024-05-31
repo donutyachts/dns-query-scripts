@@ -3,8 +3,8 @@
 '
 Script receives text file in the INPUT directory with a list of domains as input. Each domain on a separate line.
 Script runs dig query.
-Script appends output of query to the file for each domain.
-Script renames the output file, with a timestamp, and moves to the file to the OUTPUT directory.
+Script appends output of query to the OUTPUT file for each domain.
+Script renames the OUTPUT file, with a timestamp, and moves to the file to the OUTPUT directory.
 
 The dig command options (+nocomments and +nostats) are used so the response is clean.
 
