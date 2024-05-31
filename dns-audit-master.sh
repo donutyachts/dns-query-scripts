@@ -9,9 +9,12 @@ Script renames the OUTPUT file, with a timestamp, and moves to the file to the O
 Permissions needed to execute file: chmod u+x filename.sh
 Execute command in terminal while in the same directory as file: ./filename.sh
 
-Perform following commands on output file to format the query result onto a single CSV row:
+Perform following commands on the output file - one after the other - to format the query result onto a single CSV row:
 tr "\n" "," < $OUTPUT > $OUTPUT_newfilename
 sed -i 's/+++ /\n/g' $OUTPUT_newfilename
+
+If on a Mac, then download gsed and use the gsed command instead of sed.
+brew install gnu-sed
 
 =COUNTIF(Mail_Provisioning!A5:A39035,"=A2")
 '
